@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="IService\" />
     <Folder Include="Service\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
