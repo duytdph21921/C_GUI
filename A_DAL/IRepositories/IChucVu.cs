@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace A_DAL.IRepositories
 {
-    public interface IChucVu
+    public interface IChuVu
     {
         public bool add(ChucVu chucVu);
         public bool delete(ChucVu chucVu);

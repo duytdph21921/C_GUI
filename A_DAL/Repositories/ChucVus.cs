@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace A_DAL.Repositories
 {
-    public class ChucVus : IChucVu
+    public class ChucVus : IChuVu
     {
         XeMayDbConText _Dbcontext = new XeMayDbConText();
         public bool add(ChucVu chucVu)
