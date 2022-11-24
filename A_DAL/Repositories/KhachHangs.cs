@@ -54,8 +54,19 @@ namespace A_DAL.Repositories
             try
             {
                 if (khachHang.id == null) return false;
-                var getIdkhachhang = _dbcontext.KhachHangs.FirstOrDefault(c => c.id == khachHang.id);
-                _dbcontext.KhachHangs.Update(getIdkhachhang);
+                var kh = _dbcontext.KhachHangs.FirstOrDefault(c => c.id == khachHang.id);
+                kh.Ma = khachHang.Ma;
+                kh.Ten= khachHang.Ten;
+                kh.TenDem= khachHang.TenDem;
+                kh.Ho= khachHang.Ho;
+                kh.NgaySinh= khachHang.NgaySinh;
+                kh.sdt= khachHang.sdt;
+                kh.DiaChi= khachHang.DiaChi;
+                kh.ThanhPho= khachHang.ThanhPho;
+                kh.QuocGia= khachHang.QuocGia;
+                kh.trangthai= khachHang.trangthai;
+               
+                _dbcontext.KhachHangs.Update(kh);
                 _dbcontext.SaveChanges();
                 return true;
             }

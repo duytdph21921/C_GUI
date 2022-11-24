@@ -1,3 +1,5 @@
+using C_GUI.View;
+using DuAn1_Winform;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace C_GUI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.Run(new QL_NhanVien()) ;
         }
     }
 }

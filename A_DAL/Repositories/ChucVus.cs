@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace A_DAL.Repositories
 {
-    public class ChucVus : IChucVu
+    public class ChucVus : IChuVu
     {
         XeMayDbConText _Dbcontext = new XeMayDbConText();
         public bool add(ChucVu chucVu)
@@ -53,20 +53,16 @@ namespace A_DAL.Repositories
 
         public bool update(ChucVu chucVu)
         {
-            try
-            {
+            
                 if (chucVu == null) return false;
                 var getIDChuVu = _Dbcontext.ChucVus.FirstOrDefault(c => c.id == chucVu.id);
+              getIDChuVu.Ma = chucVu.Ma;
+            getIDChuVu.Ten = chucVu.Ten;
                 _Dbcontext.Update(getIDChuVu);
                 _Dbcontext.SaveChanges();
                 return true;
 
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+           
         }
     }
 }

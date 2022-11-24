@@ -38,8 +38,10 @@ namespace A_DAL.Repositories
         public bool update(loaiXe loaiXe)
         {
             if (loaiXe.id == null) return false;
-            var getidloaixe = _dbcontext.LoaiXes.FirstOrDefault(c => c.id == loaiXe.id);
-            _dbcontext.LoaiXes.Update(getidloaixe);
+            var lx = _dbcontext.LoaiXes.FirstOrDefault(c => c.id == loaiXe.id);
+            lx.Ma = loaiXe.Ma;
+            lx.Ten= loaiXe.Ten;
+            _dbcontext.LoaiXes.Update(lx);
             _dbcontext.SaveChanges();
             return true;
         }

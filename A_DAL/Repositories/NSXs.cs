@@ -38,8 +38,10 @@ namespace A_DAL.Repositories
         public bool update(NSX nSX)
         {
             if (nSX == null) return false;
-            var getidnsx = _dbcontext.NSXes.FirstOrDefault(c => c.id == nSX.id);
-            _dbcontext.NSXes.Update(getidnsx);
+            var nsx = _dbcontext.NSXes.FirstOrDefault(c => c.id == nSX.id);
+            nsx.Ma = nSX.Ma; 
+            nsx.Ten = nSX.Ten;
+            _dbcontext.NSXes.Update(nsx);
             _dbcontext.SaveChanges();
             return true;
         }

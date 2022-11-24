@@ -38,8 +38,10 @@ namespace A_DAL.Repositories
         public bool update(mauSac mauSac)
         {
             if (mauSac.id == null) return false;
-            var getidmauSac = _dbcontext.MauSacs.FirstOrDefault(c => c.id == mauSac.id);
-            _dbcontext.MauSacs.Update(getidmauSac);
+            var ms = _dbcontext.MauSacs.FirstOrDefault(c => c.id == mauSac.id);
+            ms.Ma = mauSac.Ma;
+            ms.Ten= mauSac.Ten;
+            _dbcontext.MauSacs.Update(ms);
             _dbcontext.SaveChanges();
             return true;
         }

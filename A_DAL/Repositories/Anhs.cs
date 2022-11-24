@@ -66,9 +66,12 @@ namespace A_DAL.Repositories
             {
                 if (anh.id == null) return false;
                 {
-                    //  var getbyIdAnh = _dbcontext.Anhs.FirstOrDefault(c => c.id == anh.id); 
-                    // có thể sửa dụng cách này
-                    _dbcontext.Anhs.Update(_dbcontext.Anhs.FirstOrDefault(c => c.id == anh.id));
+                    var getidchucvu = _dbcontext.Anhs.FirstOrDefault(c => c.id == anh.id);
+                    anh.Ma = getidchucvu.Ma;
+                    anh.Ten = getidchucvu.Ten;
+                    anh.Link = getidchucvu.Link;
+
+                    _dbcontext.Anhs.Update(getidchucvu);
                     _dbcontext.SaveChanges();
                     return true;
                 }

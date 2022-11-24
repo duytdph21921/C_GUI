@@ -54,8 +54,11 @@ namespace A_DAL.Repositories
             try
             {
                 if (khoiDong.id == null) return false;
-                var getIdKhoiDong = _dbcontext.KhoiDongs.FirstOrDefault(c => c.id == khoiDong.id);
-                _dbcontext.KhoiDongs.Update(getIdKhoiDong);
+                var kd = _dbcontext.KhoiDongs.FirstOrDefault(c => c.id == khoiDong.id);
+                kd.Ma = khoiDong.Ma;
+                kd.Ten= khoiDong.Ten;
+
+                _dbcontext.KhoiDongs.Update(kd);
                 _dbcontext.SaveChanges();
                 return true;
             }

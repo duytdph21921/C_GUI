@@ -55,6 +55,12 @@ namespace A_DAL.Repositories
             {
                 if (hoaDonChiTiet == null) return false;
                 var getIdHonChiTiet = _dbcontext.HoaDonChitiets.FirstOrDefault(c => c.HoaDonId == hoaDonChiTiet.HoaDonId);
+                getIdHonChiTiet.HoaDonId = hoaDonChiTiet.HoaDonId;
+                getIdHonChiTiet.KhuyenMaiID = hoaDonChiTiet.KhuyenMaiID;
+                getIdHonChiTiet.soLuong = hoaDonChiTiet.soLuong;
+                getIdHonChiTiet.DonGia = hoaDonChiTiet.DonGia;
+                getIdHonChiTiet.ThanhTien = hoaDonChiTiet.ThanhTien;
+                getIdHonChiTiet.trangthai = hoaDonChiTiet.trangthai;
                 _dbcontext.HoaDonChitiets.Update(getIdHonChiTiet);
                 _dbcontext.SaveChanges();
                 return true;

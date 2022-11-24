@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace A_DAL.Repositories
 {
-    public class NhaViens : INhavien
+    public class NhanViens : INhavien
     {
         XeMayDbConText _dbcontext = new XeMayDbConText();
         public bool add(NhanVien nhanVien)
@@ -38,6 +38,16 @@ namespace A_DAL.Repositories
         {
             if (nhanVien == null) return false;
             var getidnhavien = _dbcontext.NhanViens.FirstOrDefault(c => c.id == nhanVien.id);
+            getidnhavien.Ma = nhanVien.Ma;
+            getidnhavien.Ten= nhanVien.Ten;
+            getidnhavien.Ho= nhanVien.Ho;
+            getidnhavien.TenDem= nhanVien.TenDem;
+            getidnhavien.NgaySinh= nhanVien.NgaySinh;
+            getidnhavien.sdt= nhanVien.sdt;
+            getidnhavien.DiaChi= nhanVien.DiaChi;
+            getidnhavien.MatKhau= nhanVien.MatKhau;
+            getidnhavien.gioitinh= nhanVien.gioitinh;
+            getidnhavien.Trangthai= nhanVien.Trangthai;
             _dbcontext.NhanViens.Update(getidnhavien);
             _dbcontext.SaveChanges();
             return true;

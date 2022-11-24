@@ -54,8 +54,14 @@ namespace A_DAL.Repositories
             try
             {
                 if (khuyenMai.id == null) return false;
-                var getidkhuyenMai = _dbcontext.KhuyenMais.FirstOrDefault(c => c.id == khuyenMai.id);
-                _dbcontext.KhuyenMais.Update(getidkhuyenMai);
+                var km = _dbcontext.KhuyenMais.FirstOrDefault(c => c.id == khuyenMai.id);
+                km.Ma = khuyenMai.Ma;
+                km.Ten = khuyenMai.Ten;
+                km.mota= khuyenMai.mota;
+                km.NgayketThuc = khuyenMai.NgayketThuc;
+                km.SoLuongGiam = khuyenMai.SoLuongGiam;
+                km.TrangThai = khuyenMai.TrangThai;
+                _dbcontext.KhuyenMais.Update(km);
                 _dbcontext.SaveChanges();
                 return true;
             }

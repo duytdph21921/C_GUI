@@ -64,8 +64,9 @@ namespace A_DAL.Repositories
                 if (dongCo.id == null) return false;
                 {
                     var getbyIdDongCo = _dbcontext.DongCos.FirstOrDefault(c => c.id == dongCo.id);
-                    // có thể sửa dụng cách này
-                    _dbcontext.DongCos.Update(_dbcontext.DongCos.FirstOrDefault(c => c.id == dongCo.id));
+                    getbyIdDongCo.Ma = dongCo.Ma;
+                    getbyIdDongCo.Ten = dongCo.Ten;
+                    _dbcontext.DongCos.Update(getbyIdDongCo);
                     _dbcontext.SaveChanges();
                     return true;
                 }

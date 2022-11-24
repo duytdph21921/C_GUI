@@ -40,8 +40,10 @@ namespace A_DAL.Repositories
         public bool update(sanPham sanPham)
         {
             if (sanPham == null) return false;
-            var getidsanpham = _dbcontext.SanPhams.FirstOrDefault(c => c.id == sanPham.id);
-            _dbcontext.SanPhams.Update(sanPham);
+            var sp = _dbcontext.SanPhams.FirstOrDefault(c => c.id == sanPham.id);
+            sp.Ma = sanPham.Ma;
+            sp.Ten = sanPham.Ten;
+            _dbcontext.SanPhams.Update(sp);
             _dbcontext.SaveChanges();
             return true;
         }

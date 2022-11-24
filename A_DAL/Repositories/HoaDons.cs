@@ -62,9 +62,20 @@ namespace A_DAL.Repositories
             {
                 if (hoaDon.Id == null) return false;
                 {
-                    //    var getbyIdAnh = _dbcontext.HoaDons.FirstOrDefault(c => c.Id == hoaDon.Id); 
-                    // có thể sửa dụng cách này
-                    _dbcontext.HoaDons.Update(_dbcontext.HoaDons.FirstOrDefault(c => c.Id == hoaDon.Id));
+                   var getbyIdAnh = _dbcontext.HoaDons.FirstOrDefault(c => c.Id == hoaDon.Id);
+                    getbyIdAnh.khachHangID = hoaDon.khachHangID;
+                    getbyIdAnh.nhanVienID = hoaDon.nhanVienID;
+                    getbyIdAnh.MA = hoaDon.MA;
+                    getbyIdAnh.ngayTao =   hoaDon.ngayTao;
+                    getbyIdAnh.ngayThanhToan = hoaDon.ngayThanhToan;
+                    getbyIdAnh.NgayShip = hoaDon.NgayShip;
+                    getbyIdAnh.NgayNhan= hoaDon.NgayNhan;
+                    getbyIdAnh.NgayMongMuon = hoaDon.NgayMongMuon;
+                    getbyIdAnh.TenNguoiNhan = hoaDon.TenNguoiNhan;
+                    getbyIdAnh.SDT =hoaDon.SDT;
+                    getbyIdAnh.DiaChi = hoaDon.DiaChi;
+                    getbyIdAnh.trangthai = hoaDon.trangthai;
+                    _dbcontext.HoaDons.Update(getbyIdAnh);
                     _dbcontext.SaveChanges();
                     return true;
                 }

@@ -1,15 +1,16 @@
-﻿using System;
+﻿using A_DAL.DomaninClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace A_DAL.DomaninClass
+namespace B_BUS.ViewModel
 {
-    public class NhanVien
+    public class NhanVienModelView
     {
         public Guid id { get; set; }
-
         public Guid? ChuVuId { get; set; }
         public Guid? GuiBcId { get; set; }
         public Guid? Anhid { get; set; }
@@ -23,8 +24,14 @@ namespace A_DAL.DomaninClass
         public string? MatKhau { get; set; }
         public int? gioitinh { get; set; }
         public int? Trangthai { get; set; }
-        public virtual Anh? anh { get; set; }
-        public virtual ChucVu? ChucVu { get; set; }
-        public virtual NhanVien? Guibc { get; set; }
+        // hiển thị ngoài
+        public string? Hovaten { get; set; }
+        public string? tenChuVu { get; set; }
+        public string? nhanvienguibaocao { get; set; }
+       public  string ? linkanh { get; set; }
+        public string? HTTT { get; set; }
+        public string ?NamNu { get;set; }
+       
+        
     }
 }
