@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace B_BUS.IService
 {
-    internal class Class1
+    internal interface INhanVien
     {
     }
 }
