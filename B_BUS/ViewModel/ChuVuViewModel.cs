@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace B_BUS.ViewModel
 {
-    internal class ChuVuViewModel
+    public class ChuVuViewModel
     {
+        public Guid id { get; set; }
+        public string? Ma { get; set; }
+        public string? Ten { get; set; }
     }
 }
